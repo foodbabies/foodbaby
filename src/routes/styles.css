@@ -1,0 +1,38 @@
+@import '@fontsource-variable/playfair-display';
+@import '@fontsource-variable/playfair-display/wght-italic.css';
+
+:root {
+	--font-body: "Playfair Display Variable", system-ui, -apple-system, Helvetica Neue, Arial, sans-serif;
+	--color-bg-0: #fffff;
+	--color-theme-1: #202020;
+	--color-theme-2: #707070;
+	color: var(--color-theme-1);
+	font-family: var(--font-body);
+}
+
+body {
+	height: 100vh;
+	margin: 0;
+	background-color: var(--color-bg-1);
+}
+
+a {
+	color: var(--color-theme-1);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1 {
+	font-weight: 800;
+	font-style: italic;
+	font-size: 35px;
+}
+
+.title {
+	width: 100%;
+	text-align: center;
+	margin-top: 35px;
+}
