@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
 	export const prerender = true;
-  import RecipeList from '$lib/recipe/Recipe.svelte';
+  import RecipeList from '$lib/recipe/RecipeRenderer.svelte';
 </script>
 
 <svelte:head>

@@ -8,6 +8,7 @@ export interface Nutrition {
 }
 
 export interface ReceipeInterface {
+    id: string;
     name: string;
     author: Author;
     description?: string;

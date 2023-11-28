@@ -1,5 +1,8 @@
 <script context="module" lang="ts">
 	import Column from '$lib/section/Column.svelte';
+  import foods from '$lib/data/food/all.json';
+    import UnorderedList from '$lib/list/UnorderedList.svelte';
+    import ListItem from '$lib/list/ListItem.svelte';
 </script>
 
 <svelte:head>
@@ -9,6 +12,9 @@
 
 <Column title="food recipes">
   <section class="food" id=food>
-    <a href="food/sweet">test</a>
+    <UnorderedList>{#each foods as food}
+      <ListItem><a href={`food/${food.id}`}> {food.name} </a></ListItem>
+    {/each}
+    </UnorderedList>
   </section>
 </Column>
