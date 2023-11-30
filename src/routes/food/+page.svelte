@@ -1,8 +1,18 @@
-<script context="module" lang="ts">
+<script lang="ts">
+  import { onMount } from "svelte";
 	import Column from '$lib/section/Column.svelte';
-  import foods from '$lib/data/food/all.json';
-    import UnorderedList from '$lib/list/UnorderedList.svelte';
-    import ListItem from '$lib/list/ListItem.svelte';
+  import UnorderedList from '$lib/list/UnorderedList.svelte';
+  import ListItem from '$lib/list/ListItem.svelte';
+
+  let foods:any;
+  const endpoint = `${import.meta.env.VITE_API_URL}/api/v1/food`;
+
+  onMount(async() => {
+    const response = await fetch(endpoint);
+    const data = await response.json();
+    foods = data;
+  });
+
 </script>
 
 <svelte:head>
@@ -12,9 +22,15 @@
 
 <Column title="food recipes">
   <section class="food" id=food>
-    <UnorderedList>{#each foods as food}
-      <ListItem><a href={`food/${food.id}`}> {food.name} </a></ListItem>
-    {/each}
-    </UnorderedList>
+    {#if foods && foods.length()}
+      <UnorderedList>
+        {#each foods as food}
+          <ListItem><a href={`food/${food.id}`}> {food.name} </a></ListItem>
+        {/each}
+      </UnorderedList>
+    {:else}
+      <p> loading </p>
+    {/if}
   </section>
+
 </Column>
