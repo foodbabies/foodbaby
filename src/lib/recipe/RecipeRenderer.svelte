@@ -16,7 +16,7 @@
 
 <!-- Author information -->
 {#if recipe.author }
-  <a href={recipe.author.reference} class="author">{recipe.author.name}</a> 
+  <a href={recipe.reference} class="author">{recipe.author}</a> 
 {/if}
 
 <!-- Ingredients -->
